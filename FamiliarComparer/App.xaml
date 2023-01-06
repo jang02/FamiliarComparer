@@ -1,0 +1,140 @@
+﻿<Application x:Class="FamiliarComparer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:FamiliarComparer"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="#c2d0ea" Opacity="0.2" />
+        <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="#2a303c" />
+        <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="#c2d0ea" />
+        <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="#262b36" />
+        <SolidColorBrush x:Key="ComboBoxDisabledBorderBrush" Color="#2a303c" />
+
+        <Style x:Key="MainWindow" TargetType="Grid">
+            <Setter Property="Background" Value="#191d24"/>
+        </Style>
+
+
+        <Style x:Key="Card" TargetType="GroupBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GroupBox">
+                        <Border Margin="8" BorderThickness="0" CornerRadius="20" Background="#262b36">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="0" BlurRadius="6" Opacity="0.3"/>
+                            </Border.Effect>
+                            <Grid Margin="10" Background="#262b36">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <ContentPresenter Grid.Row="0" ContentSource="Header"/>
+                                <ContentPresenter Grid.Row="1" Margin="0,16,0,0"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ProgressBar">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ProgressBar">
+                        <Border Margin="8" BorderThickness="0" CornerRadius="10" Background="#262b36">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="0" BlurRadius="6"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Rectangle RadiusX="10" RadiusY="10" Name="PART_Track" Fill="Gainsboro" Stroke="Gray" StrokeThickness="1" />
+                                <Rectangle RadiusX="10" RadiusY="10" Name="PART_Indicator" Fill="Green" Stroke="Green" StrokeThickness="0" HorizontalAlignment="Left" />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="Styled" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#c2d0ea"/>
+        </Style>
+
+        <Style x:Key="ButtonStyled" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="bg" BorderThickness="0" CornerRadius="10" Background="#191d24" HorizontalAlignment="Right" Height="48">
+                            <TextBlock Style="{StaticResource Styled}" FontWeight="DemiBold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="16,0">
+                                <ContentPresenter ContentSource="Content"/>
+                            </TextBlock>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#15181e" TargetName="bg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="0,8,0,0"/>
+        </Style>
+
+        <Style x:Key="ButtonText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#c2d0ea"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <Style x:Key="HeaderText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#c2d0ea"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="36"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#c2d0ea"/>
+        </Style>
+
+        <Style TargetType="ListBox">
+            <Setter Property="Background" Value="#262b36"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+        <Style TargetType="ListBoxItem">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#c2d0ea"/>
+        </Style>
+
+        <Style x:Key="WindowStackPanel" TargetType="StackPanel">
+            <Style.Resources>
+                <Style TargetType="WrapPanel">
+                    <Setter Property="Margin" Value="0,5,0,5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="100px"/>
+            <Setter Property="Height" Value="45px"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ComboBoxNormalBorderBrush}"/>
+            <Setter Property="Background" Value="#2a303c"/>
+            <Setter Property="Foreground" Value="#c2d0ea"/>
+            <Setter Property="Padding" Value="13"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+    </Application.Resources>
+</Application>
