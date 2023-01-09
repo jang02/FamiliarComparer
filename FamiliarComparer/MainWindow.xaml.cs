@@ -52,6 +52,7 @@ namespace FamiliarComparer
         {
             int attack;
             int critdmg;
+            int num = Fams.Count + 1;
             try
             {
                 attack = Int32.Parse(attackText.Text);
@@ -62,16 +63,9 @@ namespace FamiliarComparer
                 return;
             }
 
-            attackUpdateText.Text = "";
-            critDMGUpdateText.Text = "";
-
-            totalDmgText.Content = "";
-            totalCritText.Content = "";
-
-            Fams.Add(new Familiar(attack, critdmg));
+            Fams.Add(new Familiar(num, attack, critdmg));
             Handler.SaveFams(Fams);
-            Fams = Handler.GetFams();
-            famList.ItemsSource = Fams;
+            reOrderList();
 
         }
 
@@ -101,8 +95,7 @@ namespace FamiliarComparer
                 totalCritText.Content = fam.TotalCrit.ToString();
 
                 Handler.SaveFams(Fams);
-                Fams = Handler.GetFams();
-                famList.ItemsSource = Fams;
+                reOrderList();
             }
         }
 
@@ -112,9 +105,23 @@ namespace FamiliarComparer
             {
                 Fams.Remove((Familiar)famList.SelectedItem);
                 Handler.SaveFams(Fams);
-                Fams = Handler.GetFams();
-                famList.ItemsSource = Fams;
+                reOrderList();
             }
+        }
+
+        private void reOrderList()
+        {
+            List<Familiar> list = new List<Familiar>(Fams);
+
+            list.Sort((fam1, fam2) =>
+            {
+                return fam2.TotalDMG.CompareTo(fam1.TotalDMG);
+            });
+
+            Fams = new BindingList<Familiar>(list);
+
+            famList.ItemsSource = Fams;
+
         }
     }
 }

@@ -8,19 +8,25 @@ namespace FamiliarComparer
 {
     public class Familiar
     {
+        public int Id { get; set; }
         public int Attack { get; set; }
         public int CritDMG { get; set; }
-        public double TotalDMG { get; set; }
-        public double TotalCrit { get; set; }
-        public string displayString { get => $"Fam: {TotalDMG}";  }
+        private double _totalDMG;
+        private double _totalCrit;
 
-        public Familiar(int attack, int critDMG)
+        public double TotalDMG { get => Math.Round(_totalDMG); }
+        public double TotalCrit { get => Math.Round(_totalCrit); }
+
+        public string displayString { get => $"#{Id} Fam: {TotalDMG}";  }
+
+        public Familiar(int num, int attack, int critDMG)
         {
+            Id = num;
             Attack = attack;
             CritDMG = critDMG;
 
-            TotalDMG = (attack * 1.8) + critDMG;
-            TotalCrit = (attack * 0.8) + critDMG;
+            _totalDMG = (attack * 1.8) + critDMG;
+            _totalCrit = (attack * 0.8) + critDMG;
 
         }
 
@@ -29,8 +35,8 @@ namespace FamiliarComparer
             Attack = attack;
             CritDMG = critDMG;
 
-            TotalDMG = (attack * 1.8) + critDMG;
-            TotalCrit = (attack * 0.8) + critDMG;
+            _totalDMG = (attack * 1.8) + critDMG;
+            _totalCrit = (attack * 0.8) + critDMG;
 
         }
 
