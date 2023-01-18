@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamiliarComparer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Familiar Comparer" Height="450" Width="800">
     <Grid Style="{StaticResource MainWindow}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="205*"/>

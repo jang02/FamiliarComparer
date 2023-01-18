@@ -5,13 +5,22 @@
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
-		<Version>1.0.2.0</Version>
+		<Version>1.0.2.1</Version>
+		<StartupObject />
+		<ApplicationIcon>icon.ico</ApplicationIcon>
+
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="data.csv">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="icon.ico">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>
