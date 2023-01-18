@@ -15,7 +15,6 @@
             <Setter Property="Background" Value="#191d24"/>
         </Style>
 
-
         <Style x:Key="Card" TargetType="GroupBox">
             <Setter Property="Template">
                 <Setter.Value>

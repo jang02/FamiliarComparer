@@ -107,6 +107,20 @@ namespace FamiliarComparer
                 Handler.SaveFams(Fams);
                 reOrderList();
             }
+
+            attackUpdateText.Text = "";
+            critDMGUpdateText.Text = "";
+
+            totalDmgText.Content = "";
+            totalCritText.Content = "";
+
+        }
+
+        private void removeAllFamiliar(object sender, RoutedEventArgs e)
+        {
+            Fams.Clear();
+            Handler.SaveFams(Fams);
+            reOrderList();
         }
 
         private void reOrderList()

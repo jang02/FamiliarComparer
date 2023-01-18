@@ -9,8 +9,8 @@
     <Grid Style="{StaticResource MainWindow}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="205*"/>
-            <ColumnDefinition Width="352*"/>
-            <ColumnDefinition Width="243*"/>
+            <ColumnDefinition Width="372*"/>
+            <ColumnDefinition Width="223*"/>
         </Grid.ColumnDefinitions>
 
         <GroupBox Grid.Column="0" Style="{StaticResource Card}">
@@ -57,8 +57,9 @@
                     </Grid>
                     <StackPanel Orientation="Horizontal">
 
-                        <Button Margin="0,0,20,0" Style="{StaticResource ButtonStyled}" Click="removeFamiliar">Remove</Button>
-                        <Button Margin="0,0,0,0" Style="{StaticResource ButtonStyled}" Click="updateFamiliar">Update</Button>
+                        <Button Margin="0,0,10,0" Style="{StaticResource ButtonStyled}" Click="removeFamiliar">Remove</Button>
+                        <Button Margin="0,0,10,0" Style="{StaticResource ButtonStyled}" Click="updateFamiliar">Update</Button>
+                        <Button Margin="0,0,0,0" Style="{StaticResource ButtonStyled}" Click="removeAllFamiliar">Remove all</Button>
                     </StackPanel>
                 </StackPanel>
             </DockPanel>
