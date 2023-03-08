@@ -5,91 +5,123 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamiliarComparer"
         mc:Ignorable="d"
-        Title="Familiar Comparer" Height="450" Width="800">
+        Title="Familiar Comparer" Name="Window" Height="500" Width="800">
     <Grid Style="{StaticResource MainWindow}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="205*"/>
-            <ColumnDefinition Width="372*"/>
-            <ColumnDefinition Width="223*"/>
-        </Grid.ColumnDefinitions>
 
-        <GroupBox Grid.Column="0" Style="{StaticResource Card}">
-            <GroupBox.Header>
-                <TextBlock Style="{StaticResource HeaderText}">Fams</TextBlock>
-            </GroupBox.Header>
-            <ScrollViewer>
-                <ListBox SelectionChanged="SelectedFamChanged" x:Name="famList"></ListBox>
-            </ScrollViewer>
-        </GroupBox>
-        <GroupBox Grid.Column="1" Style="{StaticResource Card}">
-            <GroupBox.Header>
-                <TextBlock Style="{StaticResource HeaderText}">Stats</TextBlock>
-            </GroupBox.Header>
-            <DockPanel>
-                <StackPanel Style="{StaticResource WindowStackPanel}"  VerticalAlignment="Center">
-                    <Grid Margin="0,5,0,5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0">Attack</Label>
-                        <TextBox HorizontalAlignment="Center" Grid.Column="1" Name="attackUpdateText"></TextBox>
-                    </Grid>
-                    <Grid Margin="0,5,0,5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0">Crit Dmg</Label>
-                        <TextBox HorizontalAlignment="Center" Grid.Column="1" Name="critDMGUpdateText"></TextBox>
-                    </Grid>
-                    <Grid Margin="0,5,0,5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0">Total DMG:</Label>
-                        <Label Grid.Column="1" HorizontalAlignment="Center" Name="totalDmgText"></Label>
-                    </Grid>
-                    <Grid Margin="0,5,0,5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0">Total Crit:</Label>
-                        <Label Grid.Column="1" HorizontalAlignment="Center" Name="totalCritText"></Label>
-                    </Grid>
-                    <StackPanel Orientation="Horizontal">
+        <TabControl>
+            <TabItem Header="Main">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="205*"/>
+                        <ColumnDefinition Width="372*"/>
+                        <ColumnDefinition Width="223*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Button Margin="0,0,10,0" Style="{StaticResource ButtonStyled}" Click="removeFamiliar">Remove</Button>
-                        <Button Margin="0,0,10,0" Style="{StaticResource ButtonStyled}" Click="updateFamiliar">Update</Button>
-                        <Button Margin="0,0,0,0" Style="{StaticResource ButtonStyled}" Click="removeAllFamiliar">Remove all</Button>
-                    </StackPanel>
-                </StackPanel>
-            </DockPanel>
-        </GroupBox>
-        <GroupBox Grid.Column="2" Style="{StaticResource Card}">
-            <GroupBox.Header>
-                <TextBlock Style="{StaticResource HeaderText}">Add Fam</TextBlock>
-            </GroupBox.Header>
-            <DockPanel>
-                <StackPanel Style="{StaticResource WindowStackPanel}"  VerticalAlignment="Center">
-                    <Grid Margin="0,5,0,5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0">Attack</Label>
-                        <TextBox HorizontalAlignment="Right" Grid.Column="1" Name="attackText"></TextBox>
+                    <GroupBox Grid.Column="0" Style="{StaticResource Card}">
+                        <GroupBox.Header>
+                            <TextBlock Style="{StaticResource HeaderText}">Fams</TextBlock>
+                        </GroupBox.Header>
+                        <ScrollViewer>
+                            <ListBox SelectionChanged="SelectedFamChanged" x:Name="famList"></ListBox>
+                        </ScrollViewer>
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Style="{StaticResource Card}">
+                        <GroupBox.Header>
+                            <TextBlock Style="{StaticResource HeaderText}">Stats</TextBlock>
+                        </GroupBox.Header>
+                        <DockPanel>
+                            <StackPanel Style="{StaticResource WindowStackPanel}"  VerticalAlignment="Center">
+                                <Grid Margin="0,5,0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0">Attack</Label>
+                                    <TextBox HorizontalAlignment="Center" Grid.Column="1" Name="attackUpdateText"></TextBox>
+                                </Grid>
+                                <Grid Margin="0,5,0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0">Crit Dmg</Label>
+                                    <TextBox HorizontalAlignment="Center" Grid.Column="1" Name="critDMGUpdateText"></TextBox>
+                                </Grid>
+                                <Grid Margin="0,5,0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0">Total DMG:</Label>
+                                    <Label Grid.Column="1" HorizontalAlignment="Center" Name="totalDmgText"></Label>
+                                </Grid>
+                                <Grid Margin="0,5,0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0">Total Crit:</Label>
+                                    <Label Grid.Column="1" HorizontalAlignment="Center" Name="totalCritText"></Label>
+                                </Grid>
+                                <StackPanel Orientation="Horizontal">
+
+                                    <Button Margin="0,0,10,0" Style="{StaticResource ButtonStyled}" Click="removeFamiliar">Remove</Button>
+                                    <Button Margin="0,0,10,0" Style="{StaticResource ButtonStyled}" Click="removeAllFamiliar">Remove all</Button>
+                                    <Button Margin="0,0,0,0" Style="{StaticResource ButtonStyled}" Click="updateFamiliar">Update</Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </DockPanel>
+                    </GroupBox>
+                    <GroupBox Grid.Column="2" Style="{StaticResource Card}">
+                        <GroupBox.Header>
+                            <TextBlock Style="{StaticResource HeaderText}">Add Fam</TextBlock>
+                        </GroupBox.Header>
+                        <DockPanel>
+                            <StackPanel Style="{StaticResource WindowStackPanel}"  VerticalAlignment="Center">
+                                <Grid Margin="0,5,0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0">Attack</Label>
+                                    <TextBox HorizontalAlignment="Right" Grid.Column="1" Name="attackText"></TextBox>
+                                </Grid>
+                                <Grid Margin="0,5,0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0">Crit Dmg</Label>
+                                    <TextBox HorizontalAlignment="Right" Grid.Column="1" Name="critDMGText"></TextBox>
+                                </Grid>
+                                <Button Style="{StaticResource ButtonStyled}" Click="addFamiliar">+</Button>
+
+                            </StackPanel>
+                        </DockPanel>
+                    </GroupBox>
+
+
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Settings">
+                <GroupBox Style="{StaticResource Card}">
+                    <GroupBox.Header>
+                        <TextBlock Style="{StaticResource HeaderText}">Settings</TextBlock>
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="500"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="1" Checked="OnTopChanged" Unchecked="OnTopChanged" Name="OnTop">Always on top</CheckBox>
+
+                        </Grid>
                     </Grid>
-                    <Grid Margin="0,5,0,5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0">Crit Dmg</Label>
-                        <TextBox HorizontalAlignment="Right" Grid.Column="1" Name="critDMGText"></TextBox>
-                    </Grid>
-                    <Button Style="{StaticResource ButtonStyled}" Click="addFamiliar">+</Button>
-
-                </StackPanel>
-            </DockPanel>
-        </GroupBox>
-
-
+                </GroupBox>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

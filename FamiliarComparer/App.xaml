@@ -36,26 +36,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-        <Style TargetType="ProgressBar">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ProgressBar">
-                        <Border Margin="8" BorderThickness="0" CornerRadius="10" Background="#262b36">
-                            <Border.Effect>
-                                <DropShadowEffect ShadowDepth="0" BlurRadius="6"/>
-                            </Border.Effect>
-                            <Grid>
-                                <Rectangle RadiusX="10" RadiusY="10" Name="PART_Track" Fill="Gainsboro" Stroke="Gray" StrokeThickness="1" />
-                                <Rectangle RadiusX="10" RadiusY="10" Name="PART_Indicator" Fill="Green" Stroke="Green" StrokeThickness="0" HorizontalAlignment="Left" />
-                            </Grid>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-
         <Style x:Key="Styled" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#c2d0ea"/>
         </Style>
@@ -118,6 +98,36 @@
             </Style.Resources>
         </Style>
 
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Background" Value="#262b36" />
+            <Setter Property="BorderBrush" Value="{StaticResource ComboBoxNormalBorderBrush}"/>
+            <Setter Property="Foreground" Value="#c2d0ea"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" Width="15" Height="15">
+                                <Path Stretch="Uniform" Width="15" Height="10" Fill="#c2d0ea" Name="eliCheck" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z " Visibility="Collapsed"/>
+                            </Border>
+                            <TextBlock Style="{StaticResource Styled}" Margin="5,0,0,0"  VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}"></TextBlock>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#15181e" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#15181e" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="eliCheck" Property="Visibility" Value="Visible"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
 
         <Style TargetType="TextBox">
             <Setter Property="Width" Value="100px"/>
@@ -134,6 +144,51 @@
                 </Style>
             </Style.Resources>
         </Style>
+
+        <Style TargetType="TabControl">
+            <Setter Property="Background" Value="#2a303c"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+
+        <Style TargetType="TabItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid Name="Panel">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4px"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" Name="Border" Background="#c2d0ea"/>
+                            <TextBlock Grid.Column="1" FontWeight="DemiBold" Padding="15" Foreground="#c2d0ea" FontSize="14">
+                                <ContentPresenter ContentSource="Header"/>
+                            </TextBlock>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Panel" Property="Background" Value="#2a303c"/>
+                                <Setter TargetName="Border" Property="Width" Value="4px"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Panel" Property="Background" Value="#191d24"/>
+                                <Setter TargetName="Border" Property="Width" Value="0px"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Panel" Property="Background" Value="#2a303c"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="#2a303c"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+
 
     </Application.Resources>
 </Application>

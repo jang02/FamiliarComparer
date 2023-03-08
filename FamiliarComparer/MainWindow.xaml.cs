@@ -74,7 +74,7 @@ namespace FamiliarComparer
             if (famList.SelectedItem != null)
             {
 
-                Familiar fam = (Familiar) famList.SelectedItem;
+                Familiar fam = (Familiar)famList.SelectedItem;
                 int attack;
                 int critdmg;
                 try
@@ -137,5 +137,11 @@ namespace FamiliarComparer
             famList.ItemsSource = Fams;
 
         }
+
+        private void OnTopChanged(object sender, RoutedEventArgs e)
+        {
+            Window.Topmost = (bool) OnTop.IsChecked;
+        }
+
     }
 }
